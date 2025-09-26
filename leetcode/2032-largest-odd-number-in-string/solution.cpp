@@ -1,13 +1,13 @@
 class Solution {
 public:
     string largestOddNumber(string num) {
-        int lastOdd = -1;
-        for (int i = 0; i < num.length(); i++) {
-            if ((num[i] - '0') % 2 !=0)
-                lastOdd = i;
+        for (int i=num.size()-1; i>=0;i--)
+        {
+            if ((num[i]-'0')%2==1)
+            {
+                return num.substr(0,i+1);
+            }
         }
-        if (lastOdd == -1) return "";
-        return num.substr(0, lastOdd + 1);
+        return "";
     }
 };
-
