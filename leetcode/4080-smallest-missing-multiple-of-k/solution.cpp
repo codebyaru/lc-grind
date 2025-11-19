@@ -1,12 +1,13 @@
 class Solution {
 public:
     int missingMultiple(vector<int>& nums, int k) {
-        int x=k;
-        while (true)
-        {
-            if(find(nums.begin(),nums.end(),x)==nums.end())
-            return x;
-            x=x+k;
-        }
+        sort(nums.begin(),nums.end());
+        int find =k;
+        for (int i=0; i<nums.size();i++)
+            {
+                if (nums[i]==find)
+                find = find+k;
+            }
+            return find;
     }
 };
