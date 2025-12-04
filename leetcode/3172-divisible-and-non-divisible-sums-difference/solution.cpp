@@ -9,6 +9,6 @@ public:
             else
                 num2 += i;
         }
-        return num1 - num2;
+    return num1 - num2;
     }
 };
