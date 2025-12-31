@@ -9,17 +9,19 @@ public:
                 if (fives > 0) {
                     fives--;
                     tens++;
-                    //return true;
+                    // return true;
                 } else
-                    return false;}
-            else {
-                    if (fives > 0 && tens > 0) {
-                        tens--; fives--;}
-                        else if (fives >=3)
-                            fives = fives - 3;
-                        else return false;    
-                    }
+                    return false;
+            } else {
+                if (fives > 0 && tens > 0) {
+                    tens--;
+                    fives--;
+                } else if (fives >= 3)
+                    fives = fives - 3;
+                else
+                    return false;
             }
-    return true;
+        }
+        return true;
     }
 };
