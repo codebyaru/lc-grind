@@ -1,21 +1,11 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        int count = 0;
-        int n = nums.size();
-
-        for (int i = 0; i < n - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
-                count++;
-            }
+        int cnt=0; int n=nums.size();
+        for(int i=0;i<n;i++){
+            if(nums[i]>nums[(i+1)%n])
+            cnt++;
         }
-
-        // Check the last element with the first manually
-        if (nums[n - 1] > nums[0]) {
-            count++;
-        }
-
-        return count <= 1;
+        return cnt<=1;
     }
 };
-
