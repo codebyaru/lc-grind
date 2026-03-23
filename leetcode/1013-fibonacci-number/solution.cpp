@@ -1,12 +1,16 @@
+#include <unordered_map>
+using namespace std;
+
 class Solution {
 public:
-    int fib(int n) {
-        if (n<=1)
-        return n;
-        int last = fib(n-1);
-        int slast = fib(n-2);
-        return last + slast;
+    unordered_map<int,int> mp;
 
-        
+    int fib(int n) {
+        if(n <= 1) return n;
+
+        if(mp.count(n)) return mp[n];
+
+        mp[n] = fib(n-1) + fib(n-2);
+        return mp[n];
     }
 };
