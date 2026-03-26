@@ -1,33 +1,22 @@
 class Solution {
 public:
-    int compareVersion(string version1, string version2) {
-        int v1=0;
-        int v2=0;
-        int n=version1.size();
-        int m = version2.size();
-        while (v1<n||v2<m)
-        {
-            long num1=0;
-             long num2=0;
-            while (v1<n && version1[v1]!='.')
-            {
-            num1 = num1 * 10+(version1[v1]-'0');
-            v1++;
+    int compareVersion(string v1, string v2) {
+        int i=0, j=0;
+        int n1=v1.size(); int n2=v2.size();
+        while(i<n1 || j<n2){
+            int num1=0, num2=0;
+            while(i<n1 &&v1[i]!='.'){
+                num1=num1*10+(v1[i]-'0');
+                i++;
             }
-            v1++;
-            while (v2<m && version2[v2]!='.')
-            {
-            num2 = num2 * 10+(version2[v2]-'0');
-            v2++;
+            while(j<n2 && v2[j]!='.'){
+                num2=num2*10+(v2[j]-'0');
+                j++;
             }
-            v2++;
-
-        if (num1<num2)
-        return -1;
-        else if (num1>num2)
-        return 1;
+            if(num1<num2) return -1;
+            if(num1>num2) return 1;
+            i++; j++;
         }
-return 0;
+        return 0;
     }
-    
 };
