@@ -1,21 +1,19 @@
 class Solution {
 public:
     int maxFreqSum(string s) {
-        int freq[26]={0};
-        for (int i=0; i<s.length();i++)
-        {
-            int index = s[i]-'a';
-            freq[index]++;
-        } 
-        int vowel_max = 0;
-        int cons_max=0;
-        for (int i=0; i<26;i++)
-        {
-            if (i==0||i== 4 || i==8|| i==14 || i==20)
-            vowel_max = max(vowel_max, freq[i]);
-            else
-            cons_max = max(cons_max, freq[i]);
-        } 
-        return (vowel_max + cons_max);
+       unordered_map<char,int>freq;
+       int vowel = 0; int consonant =0;
+       for (char x:s){
+        freq[x]++;
+       }
+       for(auto it:freq){
+        char ch=it.first; 
+        int count = it.second; 
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+        vowel=max(vowel,count);
+        
+        else consonant = max(consonant,count);
+       }
+       return vowel + consonant; 
     }
 };
