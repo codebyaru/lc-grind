@@ -1,20 +1,17 @@
 class Solution {
 public:
-    void helper(vector<int>&nums, int index,vector<int>&curr, vector<vector<int>>&res){
-        if(index==nums.size()){
-            res.push_back(curr); return;
-        }
-        //exclude 
-        helper(nums, index+1, curr, res);
-        //include
-        curr.push_back(nums[index]);
-        helper(nums, index+1, curr, res);
-        curr.pop_back();
-    }
     vector<vector<int>> subsets(vector<int>& nums) {
-       vector<vector<int>>res;
-       vector<int>curr;
-       helper(nums, 0, curr, res);
-       return res; 
+        vector<vector<int>>ans;
+        int n = nums.size();
+        int subsets=(1<<n);
+        for (int num=0;num<subsets;num++){
+            vector<int>curr;
+        for (int i=0;i<n;i++){
+            if(num&(1<<i)) //checking set bits 
+            curr.push_back(nums[i]);
+            }
+            ans.push_back(curr);
+        }
+        return ans;
     }
 };
