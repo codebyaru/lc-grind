@@ -1,11 +1,10 @@
 class Solution {
 public:
     int smallestNumber(int n) {
-       for (int i=0;i<=n;i++)
-       {
-        if (pow(2,i)>n)
-        return (pow(2,i)-1);
-       } 
-       return 0;
+        int x=1; 
+        while(x<n){
+            x = (x << 1) | 1; //making last but 0 and then adding 1 at that place to make all 1s 
+        }
+        return x;
     }
 };
